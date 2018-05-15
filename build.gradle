@@ -19,6 +19,16 @@ allprojects {
     repositories {
         google()
         jcenter()
+//        maven { url "https://jitpack.io" }
+//        maven { url "https://maven.google.com" }
+//        maven { url 'http://repo1.maven.org/maven2' }
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs.add('-Xbootclasspath/p:app/link_libs/framework.jar');
+            options.compilerArgs.add('-Xbootclasspath/p:app/link_libs/libcore.jar');
+        }
     }
 }
 
